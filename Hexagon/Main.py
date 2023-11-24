@@ -13,7 +13,7 @@ def place_vertical_hexagon(hexagons_no_rot, origin_x, origin_y, hex_width, hex_h
     last_origin_y = 0
 
     while True:
-        hexagon = hx.Hexagon(origin_x, origin_y, hex_width, hex_height, hex_side)
+        hexagon = hx.Hexagon(origin_x, origin_y, hex_width, hex_height, hex_side, 0)
         hexagons_no_rot.append(hexagon)
 
         if origin_y > last_origin_y:
@@ -35,7 +35,7 @@ def place_vertical_hexagon_rotated(hexagons_rot, origin_x, origin_y, hex_width, 
     last_origin_x = 0
 
     while True:
-        hexagon = rhx.RotatedHexagon(origin_x, origin_y, hex_width, hex_height, hex_side)
+        hexagon = rhx.RotatedHexagon(origin_x, origin_y, hex_width, hex_height, hex_side, 0)
         hexagons_rot.append(hexagon)
 
         if origin_x > last_origin_x:

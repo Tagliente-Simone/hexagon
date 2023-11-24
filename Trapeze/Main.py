@@ -16,10 +16,11 @@ def place_trapezes(B, b, b_med, h_min, h_max, radius):
         
         while True:
             if rotate180:
-                trapezes.append(t.Trapeze(B, b, b_med, h_min, h_max, origin[0], origin[1]))
+                trapezes.append(t.Trapeze(B, b, b_med, h_min, h_max, origin[0], origin[1], 0))
                 trapezes[-1].rotate180()
+                trapezes[-1].angle = 180
             else:
-                trapezes.append(t.Trapeze(B, b, b_med, h_min, h_max, origin[0], origin[1]))
+                trapezes.append(t.Trapeze(B, b, b_med, h_min, h_max, origin[0], origin[1], 0))
                 
             if origin[0] + h_max + h_max/2 + inter > rect_width:
                 rotate180 = not rotate180
@@ -58,11 +59,12 @@ def place_rotated_trapezes(B, b, b_med, h_min, h_max, radius):
 
         while True:
             if rotate180:
-                trapezes.append(rt.RotatedTrapeze(B, b, b_med, h_min, h_max, origin[0], origin[1]))
+                trapezes.append(rt.RotatedTrapeze(B, b, b_med, h_min, h_max, origin[0], origin[1], 0))
                 trapezes[-1].rotate180()
+                trapezes[-1].angle = 180
                 rotate180 = not rotate180
             else:
-                trapezes.append(rt.RotatedTrapeze(B, b, b_med, h_min, h_max, origin[0], origin[1]))
+                trapezes.append(rt.RotatedTrapeze(B, b, b_med, h_min, h_max, origin[0], origin[1], 0))
                 rotate180 = not rotate180
 
             if origin[0] + B + B/2 + inter - radius > rect_width:
@@ -71,9 +73,12 @@ def place_rotated_trapezes(B, b, b_med, h_min, h_max, radius):
             else:
                 origin[0] += B + inter - radius
         if origin[1] + h_max + h_max/2 + inter > rect_height:
+            rotate180 = not rotate180
             break
         else:
+            rotate180 = not rotate180
             origin[1] += h_max + inter
+
 
     last_origin = (trapezes[-1].origin_x, trapezes[-1].origin_y)
 

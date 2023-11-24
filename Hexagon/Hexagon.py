@@ -2,7 +2,7 @@
 class Hexagon:
 
     ## Constructor
-    def __init__(self, origin_x, origin_y, hex_width, hex_height, vertical_side_length):
+    def __init__(self, origin_x, origin_y, hex_width, hex_height, vertical_side_length, angle):
         """
         Initializes a new instance of the Hexagon class.
 
@@ -28,6 +28,7 @@ class Hexagon:
                       (self.origin_x + self.vertical_side_length/2, self.origin_y + self.hex_height/2),
                       (self.origin_x - self.vertical_side_length/2, self.origin_y + self.hex_height/2)
                       ]
+        self.angle = angle
 
     ## Traslate the hexagon by a given slack
     def update_points(self, x_offset, y_offset):

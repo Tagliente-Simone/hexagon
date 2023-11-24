@@ -1,6 +1,6 @@
 class RotatedHexagon:
     
-    def __init__(self, origin_x, origin_y, hex_width, hex_height, vertical_side_length):
+    def __init__(self, origin_x, origin_y, hex_width, hex_height, vertical_side_length, angle):
         
         self.origin_x = origin_x
         self.origin_y = origin_y
@@ -14,6 +14,7 @@ class RotatedHexagon:
                         (self.origin_x - self.hex_height/2, self.origin_y - self.vertical_side_length/2),
                         (self.origin_x - self.hex_height/2, self.origin_y + self.vertical_side_length/2)
                         ]
+        self.angle = angle
     
     
     

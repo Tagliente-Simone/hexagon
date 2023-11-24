@@ -1,6 +1,6 @@
 class RotatedAsymHex:
     
-    def __init__(self, a, b, b_med, h_min, h_max, origin_x, origin_y):
+    def __init__(self, a, b, b_med, h_min, h_max, origin_x, origin_y, angle):
         self.a = a
         self.b = b
         self.b_med = b_med
@@ -15,7 +15,7 @@ class RotatedAsymHex:
                         (self.origin_x - b/2, self.origin_y + self.h_max/2),
                         (self.origin_x - a/2, self.origin_y - (self.h_max/2 - self.h_min))
                       ]
-        
+        self.angle = angle
         
         
     def update_points(self, slack_x, slack_y):
