@@ -1,0 +1,5 @@
+# Ignora tutti i file CSV
+*.csv
+
+# Ignora la cartella images
+/images/
