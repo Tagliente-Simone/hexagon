@@ -7,7 +7,7 @@ def place_trapezes(B, b, b_med, h_min, h_max, radius):
     origin = [h_max/2, B/2]
     trapezes = []
     
-    rotate180 = True
+    rotate180 = False
     
     while True:
         

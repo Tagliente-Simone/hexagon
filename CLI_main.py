@@ -157,9 +157,9 @@ def save_on_csv_trapezoid(trapezes, dest, din, length, weight, compo, total, uui
 
 def save_on_csv_hex(hexagons, actual, dest, din, length, weight, compo, total, uuid, hmax):
     if isinstance(hexagons[0], Hexagon) or isinstance(hexagons[0], RotatedAsymHex):
-        ordered_hexagons = sorted(hexagons, key=lambda x: (x.origin_y, x.origin_x), reverse=True)
-    else:
         ordered_hexagons = sorted(hexagons, key=lambda x: (x.origin_x, x.origin_y), reverse=True)
+    else:
+        ordered_hexagons = sorted(hexagons, key=lambda x: (x.origin_y, x.origin_x), reverse=True)
     with open(str(int(dest)) + 'coordinate_esagoni' + actual + '.csv', 'w', newline='') as csvfile:
         writer = csv.writer(csvfile, delimiter=',')
         writer.writerow(['d_int', 'd_est', 'lunghezza', 'peso_uni', 'ascissa', 'ordinata', 'composizione_fascio', 'num_pezzi_strato', 'forma_fascio', 'uuid', 'altezza_max', 'rotazione'])
@@ -198,8 +198,11 @@ length = float(parameter_list[2])
 
 weight = float(parameter_list[3])
 
+exceed_height = 1070
+exceed_width = 1200 + (2/3 * diameter_out)
+
 # Corrected class name
-config = Configuration(rect_width=1230, rect_height=1070, inter=3, uuid_length=100, images_path="./images/")
+config = Configuration(exceed_width, exceed_height, inter=3, uuid_length=100, images_path="./images/")
 
 
 #db.db_connect()

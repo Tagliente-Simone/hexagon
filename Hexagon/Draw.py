@@ -30,7 +30,7 @@ def draw_hexagons(hexagons, isActual, config):
 
     for hexagon in hexagons:
         verts = hexagon.verts
-        hexagon_polygon = Polygon(verts, fill=True, facecolor='#D3D3D3', edgecolor='black', linewidth=0.5)
+        hexagon_polygon = Polygon(verts, fill=True, facecolor='#D3D3D3', edgecolor='black', linewidth=0)
         ax.add_patch(hexagon_polygon)
         # Plotting the dot
         plt.scatter(hexagon.origin_x, hexagon.origin_y, color='black', marker='o')
