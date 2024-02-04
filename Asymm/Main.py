@@ -25,11 +25,12 @@ def place_asym_hexs(B, b, b_med, h_min, h_max, radius):
         while True:
             if  rotate180:
                 asym_hexs.append(t.AsymHex(B, b, b_med, h_min, h_max, origin[0], origin[1], 0))
+                asym_hexs[-1].angle = 180
 
             else:
                 asym_hexs.append(t.AsymHex(B, b, b_med, h_min, h_max, origin[0], origin[1], 0))
                 asym_hexs[-1].rotate180()
-                asym_hexs[-1].angle = 180
+                
 
 
                 
@@ -96,6 +97,7 @@ def place_rotated_asym_hexs(B, b, b_med, h_min, h_max, radius):
                 asym_hexs[-1].angle = 180
             else:
                 asym_hexs.append(rt.RotatedAsymHex(B, b, b_med, h_min, h_max, origin[0], origin[1], 0))
+                asym_hexs[-1].angle = 0
 
             if origin[1] + h_max + h_max/2  +inter > rect_height:
                 break

@@ -171,7 +171,7 @@ def save_on_csv_hex(hexagons, actual, dest, din, length, weight, compo, total, u
                 rotazione_rilascio = 90;
                 hexagon.origin_x, hexagon.origin_y = hexagon.origin_y, hexagon.origin_x
             rotazione_totale = hexagon.angle + rotazione_rilascio
-            writer.writerow([din, dest, length, weight, int(round(hexagon.origin_x - config.start_originx)), int(round(hexagon.origin_y - config.start_originy)), compo, total, 'esagono' + actual, uuid, hmax, rotazione_totale])
+            writer.writerow([din, dest, length, weight, int(round(hexagon.origin_y - config.start_originy)), int(round(hexagon.origin_x - config.start_originx)), compo, total, 'esagono' + actual, uuid, hmax, rotazione_totale])
         
     read_dataframe(str(int(dest)) + 'coordinate_esagoni' + actual + '.csv')
 
@@ -198,7 +198,7 @@ length = float(parameter_list[2])
 
 weight = float(parameter_list[3])
 
-exceed_height = 1070
+exceed_height = 1000 + (3/4 * diameter_out)
 exceed_width = 1200 + (2/3 * diameter_out)
 
 # Corrected class name
