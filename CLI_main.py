@@ -138,7 +138,7 @@ def save_on_csv_trapezoid(trapezes, dest, din, length, weight, compo, total, uui
     if isinstance(trapezes[0], Trapeze):
         ordered_trapezes = sorted(trapezes, key=lambda x: (x.origin_y, x.origin_x), reverse=True)
     else:
-        ordered_trapezes = sorted(trapezes, key=lambda x: (x.origin_x, x.origin_y), reverse=True)
+        ordered_trapezes = sorted(trapezes, key=lambda x: (x.origin_y, x.origin_x), reverse=True)
     with open(str(int(dest)) + 'coordinate_trapezi.csv', 'w', newline='') as csvfile:
         writer = csv.writer(csvfile, delimiter=',')
         writer.writerow(['d_int', 'd_est', 'lunghezza', 'peso_uni', 'ascissa', 'ordinata', 'composizione_fascio', 'num_pezzi_strato', 'forma_fascio', 'uuid', 'altezza_max', 'rotazione'])
@@ -150,7 +150,7 @@ def save_on_csv_trapezoid(trapezes, dest, din, length, weight, compo, total, uui
             else:
                 rotazione_rilascio = 0;
             rotazione_totale = trapeze.angle + rotazione_rilascio
-            writer.writerow([din, dest, length, weight, int(round(trapeze.origin_x - config.start_originx)), int(round(trapeze.origin_y - config.start_originy)), compo, total, 'trapezio', uuid, hmax, rotazione_totale])
+            writer.writerow([din, dest, length, weight, int(round(trapeze.origin_y - config.start_originy)), int(round(trapeze.origin_x - config.start_originx)), compo, total, 'trapezio', uuid, hmax, rotazione_totale])
         
     read_dataframe(str(int(dest)) + 'coordinate_trapezi.csv')
 
@@ -198,10 +198,14 @@ length = float(parameter_list[2])
 
 weight = float(parameter_list[3])
 
-exceed_height = 1000 + (3/4 * diameter_out)
+################################################################################################################################################
+## MODIFICARE LA RIGA 202 e 203 per il calcolo dell'altezza e larghezza massima in eccesso
+exceed_height = 1010 + (3/4 * diameter_out)
 exceed_width = 1200 + (2/3 * diameter_out)
+################################################################################################################################################
 
-# Corrected class name
+
+
 config = Configuration(exceed_width, exceed_height, inter=3, uuid_length=100, images_path="./images/")
 
 
