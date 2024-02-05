@@ -200,8 +200,8 @@ weight = float(parameter_list[3])
 
 ################################################################################################################################################
 ## MODIFICARE LA RIGA 202 e 203 per il calcolo dell'altezza e larghezza massima in eccesso
-exceed_height = 1070 + (3/4 * diameter_out)
-exceed_width = 1230 + (2/3 * diameter_out)
+exceed_height = 1000 + diameter_out
+exceed_width = 1200 + diameter_out
 ################################################################################################################################################
 
 
