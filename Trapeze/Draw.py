@@ -70,9 +70,9 @@ def draw_trapezes(trapezes, config):
     
     
     uuid = gen_uuid()
-    #plt.axis('off')
+    plt.axis('off')
     # Display the plot
-    #plt.show()
+    plt.show()
     #if (index == 9999):
     plt.savefig(config.images_path + uuid + "trap.png", dpi=300)
     ##plt.savefig(config.images_path + str(index) + 'hexagon' + str(hex_width) + str(hex_height) + str(hex_side) + rotation + '.png', dpi=300)

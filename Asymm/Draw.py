@@ -74,10 +74,11 @@ def draw_asymHex(hexagons, isActual, config):
 
     
     
-    #plt.axis('off')
+    plt.axis('off')
 
     # Display the plot
-    #plt.show()
+    #
+    # plt.show()
 
     uuid = gen_uuid()
     plt.savefig(config.images_path + uuid + "asym.png", dpi=300)

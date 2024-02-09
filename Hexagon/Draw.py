@@ -73,7 +73,7 @@ def draw_hexagons(hexagons, isActual, config):
 
     
 
-    #plt.axis('off')
+    plt.axis('off')
 
     # Display the plot
     #plt.show()

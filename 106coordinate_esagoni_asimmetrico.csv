@@ -1,7 +1,6 @@
 d_int,d_est,lunghezza,peso_uni,ascissa,ordinata,composizione_fascio,num_pezzi_strato,forma_fascio,uuid,altezza_max,rotazione
-77.0,106.0,500.0,0.5,719,1032,3-4-5-4,96,esagono_asimmetrico,fa95082af65e4f2fa8bc5715384a4606bMkI3boEmvZSR1jokTuJWZzqcuHSfXTR,381.388,270
-77.0,106.0,500.0,0.5,719,648,3-4-5-4,96,esagono_asimmetrico,fa95082af65e4f2fa8bc5715384a4606bMkI3boEmvZSR1jokTuJWZzqcuHSfXTR,381.388,270
-77.0,106.0,500.0,0.5,719,264,3-4-5-4,96,esagono_asimmetrico,fa95082af65e4f2fa8bc5715384a4606bMkI3boEmvZSR1jokTuJWZzqcuHSfXTR,381.388,270
-77.0,106.0,500.0,0.5,280,937,3-4-5-4,96,esagono_asimmetrico,fa95082af65e4f2fa8bc5715384a4606bMkI3boEmvZSR1jokTuJWZzqcuHSfXTR,381.388,90
-77.0,106.0,500.0,0.5,280,553,3-4-5-4,96,esagono_asimmetrico,fa95082af65e4f2fa8bc5715384a4606bMkI3boEmvZSR1jokTuJWZzqcuHSfXTR,381.388,90
-77.0,106.0,500.0,0.5,280,168,3-4-5-4,96,esagono_asimmetrico,fa95082af65e4f2fa8bc5715384a4606bMkI3boEmvZSR1jokTuJWZzqcuHSfXTR,381.388,90
+51.88,106.0,520.0,0.7,953,751,3-4-5-4,80,esagono_asimmetrico,d1119c9338dc4590928c970b2d117646Bnx8WqPQlwrpnwQDi4fHvAQDuP8yJ6za,381.388,90
+51.88,106.0,520.0,0.7,568,751,3-4-5-4,80,esagono_asimmetrico,d1119c9338dc4590928c970b2d117646Bnx8WqPQlwrpnwQDi4fHvAQDuP8yJ6za,381.388,90
+51.88,106.0,520.0,0.7,184,751,3-4-5-4,80,esagono_asimmetrico,d1119c9338dc4590928c970b2d117646Bnx8WqPQlwrpnwQDi4fHvAQDuP8yJ6za,381.388,90
+51.88,106.0,520.0,0.7,667,312,3-4-5-4,80,esagono_asimmetrico,d1119c9338dc4590928c970b2d117646Bnx8WqPQlwrpnwQDi4fHvAQDuP8yJ6za,381.388,270
+51.88,106.0,520.0,0.7,282,312,3-4-5-4,80,esagono_asimmetrico,d1119c9338dc4590928c970b2d117646Bnx8WqPQlwrpnwQDi4fHvAQDuP8yJ6za,381.388,270

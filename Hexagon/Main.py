@@ -96,6 +96,15 @@ def test_no_rotation(hexagons_no_rot, hex_width, hex_height, hex_side, index):
     len_no_rotation = len(hexagons_no_rot)
     centering_no_rotation(hexagons_no_rot, highest_y, hex_width, hex_height, hex_side)
 
+    for hexagon in hexagons_no_rot:
+        new_x = rect_width - hexagon.origin_x
+        new_y = rect_height - hexagon.origin_y
+        delta_x = new_x - hexagon.origin_x
+        delta_y = new_y - hexagon.origin_y
+        hexagon.origin_x = new_x
+        hexagon.origin_y = new_y
+        hexagon.update_points(delta_x, delta_y)
+
     return len_no_rotation
     
 def test_rotation(hexagons_rot, hex_width, hex_height, hex_side, index):
@@ -138,13 +147,21 @@ def test_rotation(hexagons_rot, hex_width, hex_height, hex_side, index):
 
 
 
-        
+    
+    
 
-    ## Draw the hexagons to see the result
     len_rotation = len(hexagons_rot)
     centering_rotation(hexagons_rot, highest_x, hex_width, hex_height, hex_side)
 
-    
+    for hexagon in hexagons_rot:
+        new_x = rect_width - hexagon.origin_x
+        new_y = rect_height - hexagon.origin_y
+        delta_x = new_x - hexagon.origin_x
+        delta_y = new_y - hexagon.origin_y
+        hexagon.origin_x = new_x
+        hexagon.origin_y = new_y
+        hexagon.update_points(delta_x, delta_y)
+    ## Draw the hexagons to see the result
 
     return len_rotation
 

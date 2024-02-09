@@ -135,10 +135,11 @@ else:
     print("No parameter provided.")
 
 def save_on_csv_trapezoid(trapezes, dest, din, length, weight, compo, total, uuid, hmax):
-    if isinstance(trapezes[0], Trapeze):
-        ordered_trapezes = sorted(trapezes, key=lambda x: (x.origin_y, x.origin_x), reverse=True)
-    else:
-        ordered_trapezes = sorted(trapezes, key=lambda x: (x.origin_y, x.origin_x), reverse=True)
+    ordered_trapezes = trapezes
+    #if isinstance(trapezes[0], Trapeze):
+    #    ordered_trapezes = sorted(trapezes, key=lambda x: (x.origin_y, x.origin_x), reverse=True)
+    #else:
+    #    ordered_trapezes = sorted(trapezes, key=lambda x: (x.origin_y, x.origin_x), reverse=True)
     with open(str(int(dest)) + 'coordinate_trapezi.csv', 'w', newline='') as csvfile:
         writer = csv.writer(csvfile, delimiter=',')
         writer.writerow(['d_int', 'd_est', 'lunghezza', 'peso_uni', 'ascissa', 'ordinata', 'composizione_fascio', 'num_pezzi_strato', 'forma_fascio', 'uuid', 'altezza_max', 'rotazione'])
@@ -147,19 +148,24 @@ def save_on_csv_trapezoid(trapezes, dest, din, length, weight, compo, total, uui
             if isinstance(trapeze, Trapeze):
                 rotazione_rilascio = 90;
                 trapeze.origin_x, trapeze.origin_y = trapeze.origin_y, trapeze.origin_x
+                rotazione_totale = trapeze.angle + rotazione_rilascio
+                writer.writerow([din, dest, length, weight, int(round(trapeze.origin_y - config.start_originy)), int(round(trapeze.origin_x - config.start_originx)), compo, total, 'trapezio', uuid, hmax, rotazione_totale])
+
             else:
                 rotazione_rilascio = 0;
-            rotazione_totale = trapeze.angle + rotazione_rilascio
-            writer.writerow([din, dest, length, weight, int(round(trapeze.origin_y - config.start_originy)), int(round(trapeze.origin_x - config.start_originx)), compo, total, 'trapezio', uuid, hmax, rotazione_totale])
+                rotazione_totale = trapeze.angle + rotazione_rilascio
+                writer.writerow([din, dest, length, weight, int(round(trapeze.origin_y - config.start_originy)), int(round(trapeze.origin_x - config.start_originx)), compo, total, 'trapezio', uuid, hmax, rotazione_totale])
+        
         
     read_dataframe(str(int(dest)) + 'coordinate_trapezi.csv')
 
 
 def save_on_csv_hex(hexagons, actual, dest, din, length, weight, compo, total, uuid, hmax):
-    if isinstance(hexagons[0], Hexagon) or isinstance(hexagons[0], RotatedAsymHex):
-        ordered_hexagons = sorted(hexagons, key=lambda x: (x.origin_x, x.origin_y), reverse=True)
-    else:
-        ordered_hexagons = sorted(hexagons, key=lambda x: (x.origin_y, x.origin_x), reverse=True)
+    ordered_hexagons = hexagons
+    #if isinstance(hexagons[0], Hexagon) or isinstance(hexagons[0], RotatedAsymHex):
+    #    ordered_hexagons = sorted(hexagons, key=lambda x: (x.origin_x, x.origin_y), reverse=True)
+    #else:
+    #    ordered_hexagons = sorted(hexagons, key=lambda x: (x.origin_y, x.origin_x), reverse=True)
     with open(str(int(dest)) + 'coordinate_esagoni' + actual + '.csv', 'w', newline='') as csvfile:
         writer = csv.writer(csvfile, delimiter=',')
         writer.writerow(['d_int', 'd_est', 'lunghezza', 'peso_uni', 'ascissa', 'ordinata', 'composizione_fascio', 'num_pezzi_strato', 'forma_fascio', 'uuid', 'altezza_max', 'rotazione'])
@@ -167,11 +173,16 @@ def save_on_csv_hex(hexagons, actual, dest, din, length, weight, compo, total, u
         for hexagon in ordered_hexagons:
             if isinstance(hexagon, Hexagon) or isinstance(hexagon, RotatedAsymHex):
                 rotazione_rilascio = 0;
+                rotazione_totale = hexagon.angle + rotazione_rilascio
+                writer.writerow([din, dest, length, weight, int(round(hexagon.origin_y - config.start_originy)), int(round(hexagon.origin_x - config.start_originx)), compo, total, 'esagono' + actual, uuid, hmax, rotazione_totale])
+
+
             else:
                 rotazione_rilascio = 90;
+                rotazione_totale = hexagon.angle + rotazione_rilascio
                 hexagon.origin_x, hexagon.origin_y = hexagon.origin_y, hexagon.origin_x
-            rotazione_totale = hexagon.angle + rotazione_rilascio
-            writer.writerow([din, dest, length, weight, int(round(hexagon.origin_y - config.start_originy)), int(round(hexagon.origin_x - config.start_originx)), compo, total, 'esagono' + actual, uuid, hmax, rotazione_totale])
+                writer.writerow([din, dest, length, weight, int(round(hexagon.origin_y - config.start_originy)), int(round(hexagon.origin_x - config.start_originx)), compo, total, 'esagono' + actual, uuid, hmax, rotazione_totale])
+
         
     read_dataframe(str(int(dest)) + 'coordinate_esagoni' + actual + '.csv')
 
@@ -180,7 +191,6 @@ def save_on_csv_hex(hexagons, actual, dest, din, length, weight, compo, total, u
 def read_dataframe(csv_file):
 
     df = pd.read_csv(csv_file)
-    print(df)
     #db.test_insert(df)
 
 
@@ -200,8 +210,8 @@ weight = float(parameter_list[3])
 
 ################################################################################################################################################
 ## MODIFICARE LA RIGA 202 e 203 per il calcolo dell'altezza e larghezza massima in eccesso
-exceed_height = 1000 + diameter_out
-exceed_width = 1200 + diameter_out
+exceed_height = 1000 + 8/5*diameter_out
+exceed_width = 1200 + 8/5*diameter_out
 ################################################################################################################################################
 
 
