@@ -51,9 +51,11 @@ def place_rotated_trapezes(B, b, b_med, h_min, h_max, radius):
 
     rotate180 = True
 
+    origin[1] = rect_height - h_max/2
+
     while True:
 
-        origin[1] = rect_height - h_max/2
+        origin[0] = rect_width - B/2 
 
         while True:
             
@@ -61,19 +63,22 @@ def place_rotated_trapezes(B, b, b_med, h_min, h_max, radius):
                 trapezes.append(rt.RotatedTrapeze(B, b, b_med, h_min, h_max, origin[0], origin[1], 0))
                 trapezes[-1].rotate180()
                 trapezes[-1].angle = 180
+                rotate180 = not rotate180
             else:
                 trapezes.append(rt.RotatedTrapeze(B, b, b_med, h_min, h_max, origin[0], origin[1], 0))
-
-            if origin[1] - (h_max + h_max/2 + inter) < 0:
                 rotate180 = not rotate180
+
+            if origin[0] - (B + B/2 + inter - radius) < 0:
                 break
             else:
-                origin[1] -= h_max + inter
+                origin[0] -= B + inter - radius
                 
-        if origin[0] - (B + B/2 + inter - radius) < 0:
+        if origin[1] - (h_max + h_max/2 + inter) < 0:
+            print(origin[1] - (h_max + h_max/2 + inter))
             break
         else:
-            origin[0] -= B + inter - radius
+            origin[1] -= h_max + inter
+
         #if origin[1] + h_max + h_max/2 + inter > rect_height:
         #    break
         #else:
