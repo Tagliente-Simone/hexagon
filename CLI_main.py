@@ -209,7 +209,7 @@ length = float(parameter_list[2])
 weight = float(parameter_list[3])
 
 ################################################################################################################################################
-## MODIFICARE LA RIGA 202 e 203 per il calcolo dell'altezza e larghezza massima in eccesso
+## MODIFICARE LA RIGA 213 e 214 per il calcolo dell'altezza e larghezza massima in eccesso
 exceed_height = 1000 + 8/5*diameter_out
 exceed_width = 1200 + 8/5*diameter_out
 ################################################################################################################################################
